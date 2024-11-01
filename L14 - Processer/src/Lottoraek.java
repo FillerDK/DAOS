@@ -9,7 +9,7 @@ public class Lottoraek {
         int ant = 0;
         Random r=new Random();
         while (ant < 7) {
-            int tal = Math.abs(r.nextInt()) % 36 + 1;
+            int tal = r.nextInt(1, 37);
             if (!raek[tal]) {
                 raek[tal] = true;
                 ant ++;
