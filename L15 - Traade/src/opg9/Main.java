@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         Common common = new Common();
 
-        threadClass t1 = new threadClass("Philip", common, 0);
-        threadClass t2 = new threadClass("Nils", common, 1);
+        threadClass t1 = new threadClass("Philip", common);
+        threadClass t2 = new threadClass("Nils", common);
 
         t1.start();
         t2.start();
