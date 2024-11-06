@@ -4,31 +4,8 @@ import java.util.Random;
 
 public class Common {
 
-    volatile int turn;
-    boolean[] flag;
-
     private volatile static int sidsteNummer = 0;
     private volatile static int ekspeditionsNummer = 0;
-
-    public Common() {
-        flag = new boolean[] {false, false};
-    }
-
-    public void setFlag(boolean flag, int id) {
-        this.flag[id] = flag;
-    }
-
-    public boolean getFlag(int id) {
-        return flag[id];
-    }
-
-    public void setTurn(int turn) {
-        this.turn = turn;
-    }
-
-    public int getTurn() {
-        return turn;
-    }
 
     public int getBilletnummer() {
         return sidsteNummer;

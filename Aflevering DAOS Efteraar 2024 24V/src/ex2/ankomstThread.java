@@ -1,44 +1,35 @@
 package ex2;
 
 import java.util.Random;
+import java.util.concurrent.Semaphore;
 
 public class ankomstThread extends Thread {
     String navn;
     Common x;
+    Semaphore s;
     private int thisId;
-    private int otherId;
 
-    public ankomstThread(String navn, Common x, int id) {
+    public ankomstThread(String navn, Common x, int id, Semaphore s) {
         this.navn = navn;
         this.x = x;
         thisId = id;
+        this.s = s;
     }
 
     public void run() {
         Random r = new Random();
         for (int i = 0; i < 10; i++) {
-
-
-            otherId = (thisId + 1) % 2;
-            x.setFlag(true, thisId);
-            x.setTurn(otherId);
-
-
-            // busy waiting
-            while (x.getFlag(otherId) && x.getTurn() == otherId) {
-                try {
-                    sleep(r.nextInt(1000, 3000));
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+            try {
+                s.acquire();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
-            // critical section
             x.opdaterBillet();
             System.out.printf("""
                     Indgang %d benyttet | nr: %d | kø størrelse: %d
                     """, thisId, x.getBilletnummer(), x.getKøStørrelse());
-
-            x.setFlag(false, thisId);
+            x.TagerRanTid(1000);
+            s.release();
         }
     }
 }
