@@ -1,4 +1,4 @@
-package ex2;
+package ex3;
 
 import java.util.Random;
 import java.util.concurrent.Semaphore;
