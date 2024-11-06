@@ -16,9 +16,6 @@ public class bagerdameThread extends Thread {
         Random r = new Random();
         boolean work = true;
         while (work) {
-            // busy waiting
-            while (x.getEkspeditionsNummer() == x.getBilletnummer());
-
             try {
                 sleep(r.nextInt(1000, 2000));
             } catch (InterruptedException e) {

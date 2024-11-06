@@ -31,14 +31,14 @@ public class Common {
         }
     }
 
-    public static void opdaterBillet() {
+    public static synchronized void opdaterBillet() {
         int temp;
         temp = sidsteNummer;
         TagerRanTid(10000);
         sidsteNummer = temp +1;
     }
 
-    public static void opdaterEkspeditionsNummer() {
+    public static synchronized void opdaterEkspeditionsNummer() {
         int temp;
         temp = ekspeditionsNummer;
         TagerRanTid(10000);
