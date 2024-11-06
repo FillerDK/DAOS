@@ -1,3 +1,5 @@
+package ex2;
+
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         Common x = new Common();
@@ -13,7 +15,5 @@ public class Main {
         aT2.start();
         bdT1.start();
 
-        bdT1.join();
-        System.out.println("Slut");
     }
 }

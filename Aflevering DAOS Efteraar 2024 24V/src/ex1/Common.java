@@ -1,11 +1,13 @@
+package ex1;
+
 import java.util.Random;
 
 public class Common {
 
-    int turn;
+    volatile int turn;
     boolean[] flag;
 
-    private volatile static int billetNummer = 0;
+    private volatile static int sidsteNummer = 0;
     private volatile static int ekspeditionsNummer = 0;
 
     public Common() {
@@ -29,11 +31,15 @@ public class Common {
     }
 
     public int getBilletnummer() {
-        return billetNummer;
+        return sidsteNummer;
     }
 
     public int getEkspeditionsNummer() {
         return ekspeditionsNummer;
+    }
+
+    public int getKøStørrelse() {
+        return getBilletnummer() - getEkspeditionsNummer();
     }
 
     public static void TagerRanTid(int max) {
@@ -50,15 +56,15 @@ public class Common {
 
     public static void opdaterBillet() {
         int temp;
-        temp = billetNummer;
-        TagerRanTid(1000);
-        billetNummer = temp +1;
+        temp = sidsteNummer;
+        TagerRanTid(10000);
+        sidsteNummer = temp +1;
     }
 
     public static void opdaterEkspeditionsNummer() {
         int temp;
         temp = ekspeditionsNummer;
-        TagerRanTid(1000);
+        TagerRanTid(10000);
         ekspeditionsNummer = temp +1;
     }
 }
