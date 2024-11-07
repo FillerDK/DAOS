@@ -22,5 +22,11 @@ public class Main {
         bdT2.start();
         aT1.start();
         aT2.start();
+
+        while (x.getAntalEkspedierede() != 20) {
+            Thread.sleep(500);
+        }
+        bdT1.setWork(false);
+        bdT2.setWork(false);
     }
 }

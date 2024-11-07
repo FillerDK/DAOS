@@ -29,7 +29,7 @@ public class ankomstThread extends Thread {
                 throw new RuntimeException(e);
             }
             System.out.printf("""
-                    %s:%s:%02d : %s benyttede indgang %s og er nummer %d i køen!
+                    %02d:%02d:%02d : %s benyttede indgang %s og er nummer %d i køen!
                     """, LocalTime.now().getHour(), LocalTime.now().getMinute(),
                     LocalTime.now().getSecond(), navne[count], navn, x.getCount());
             if (x.getCount() == x.getBuffer().length)
