@@ -1,7 +1,7 @@
 package ex1;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Common x = new Common();
 
         ankomstThread indgangA = new ankomstThread("A", x, 0);

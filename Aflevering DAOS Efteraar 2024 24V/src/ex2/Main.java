@@ -3,7 +3,7 @@ package ex2;
 import java.util.concurrent.Semaphore;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Common x = new Common();
         Semaphore s = new Semaphore(1);
 

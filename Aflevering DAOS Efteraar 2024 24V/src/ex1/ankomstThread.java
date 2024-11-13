@@ -6,8 +6,7 @@ import java.util.Random;
 public class ankomstThread extends Thread {
     String navn;
     Common x;
-    private int thisId;
-    private int otherId;
+    private final int thisId;
 
     public ankomstThread(String navn, Common x, int id) {
         this.navn = navn;
@@ -22,7 +21,7 @@ public class ankomstThread extends Thread {
                 LocalTime.now().getSecond(), navn);
         Random r = new Random();
         for (int i = 0; i < 10; i++) {
-            otherId = (thisId + 1) % 2;
+            int otherId = (thisId + 1) % 2;
             x.setFlag(true, thisId);
             x.setTurn(otherId);
             // busy waiting
@@ -35,7 +34,7 @@ public class ankomstThread extends Thread {
                 }
             }
             // critical section start
-            x.opdaterBillet();
+            Common.opdaterBillet();
             System.out.printf("""
                     %02d:%02d:%02d : Indgang %s benyttet, %d mennesker i køen!
                     """, LocalTime.now().getHour(), LocalTime.now().getMinute(),

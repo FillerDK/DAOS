@@ -20,12 +20,14 @@ public class bagerdameThread extends Thread {
         Random r = new Random();
         boolean work = true;
         while (work) {
+            while (x.getEkspeditionsNummer() == x.getBilletnummer());
+
             try {
                 sleep(r.nextInt(1000, 2000));
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            x.opdaterEkspeditionsNummer();
+            Common.opdaterEkspeditionsNummer();
             System.out.printf("""
                                 %02d:%02d:%02d : %s ekspederede en kunde
                                             Der er nu %d tilbage i køen!

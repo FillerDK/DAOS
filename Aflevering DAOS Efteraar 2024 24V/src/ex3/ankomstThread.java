@@ -27,12 +27,12 @@ public class ankomstThread extends Thread {
             } catch (InterruptedException ex) {
                 throw new RuntimeException(ex);
             }
-            x.opdaterBillet();
+            Common.opdaterBillet();
             System.out.printf("""
                     %02d:%02d:%02d : Indgang %s benyttet, %d mennesker i køen!
                     """, LocalTime.now().getHour(), LocalTime.now().getMinute(),
                     LocalTime.now().getSecond(), navn, x.getKøStørrelse());
-            x.TagerRanTid(1000);
+            Common.TagerRanTid(1000);
         }
     }
 }

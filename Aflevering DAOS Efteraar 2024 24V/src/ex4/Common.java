@@ -4,24 +4,12 @@ import java.util.Random;
 
 public class Common {
 
-    private static int n = 6;
+    private static final int n = 6;
     private int antalEkspedierede;
-    private static String[] buffer = new String[n];
+    private static final String[] buffer = new String[n];
     private int nextin = 0;
     private int nextout = 0;
     private int count = 0;
-
-    public int getN() {
-        return n;
-    }
-
-    public int getNextin() {
-        return nextin;
-    }
-
-    public int getNextout() {
-        return nextout;
-    }
 
     public int getCount() {
         return count;

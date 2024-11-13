@@ -8,7 +8,7 @@ public class ankomstThread extends Thread {
     Common x;
     String[] navne;
     int count = 0;
-    private int antalKunder;
+    private final int antalKunder;
 
     public ankomstThread(String navn, Common x, String[] navneliste, int kunder) {
         this.navn = navn;
