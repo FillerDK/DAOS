@@ -34,7 +34,7 @@ public class bagerdameThread extends Thread {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                x.TagerRanTid(1000);
+                Common.TagerRanTid(1000);
                 System.out.printf("""
                                 %02d:%02d:%02d : %s ekspederede %s
                                             Der er nu %d tilbage i køen!

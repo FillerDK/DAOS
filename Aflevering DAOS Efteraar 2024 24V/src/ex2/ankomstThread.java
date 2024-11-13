@@ -8,12 +8,10 @@ public class ankomstThread extends Thread {
     String navn;
     Common x;
     Semaphore s;
-    private int thisId;
 
-    public ankomstThread(String navn, Common x, int id, Semaphore s) {
+    public ankomstThread(String navn, Common x, Semaphore s) {
         this.navn = navn;
         this.x = x;
-        thisId = id;
         this.s = s;
     }
 
@@ -34,8 +32,8 @@ public class ankomstThread extends Thread {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            x.opdaterBillet();
-            x.TagerRanTid(1000);
+            Common.opdaterBillet();
+            Common.TagerRanTid(1000);
 
             System.out.printf("""
                     %02d:%02d:%02d : Indgang %s benyttet, %d mennesker i køen!

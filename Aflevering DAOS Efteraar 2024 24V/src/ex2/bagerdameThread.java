@@ -27,7 +27,7 @@ public class bagerdameThread extends Thread {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            x.opdaterEkspeditionsNummer();
+            Common.opdaterEkspeditionsNummer();
             System.out.printf("""
                                 %02d:%02d:%02d : %s ekspederede en kunde
                                             Der er nu %d tilbage i køen!
