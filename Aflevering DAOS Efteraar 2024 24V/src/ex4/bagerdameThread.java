@@ -21,7 +21,7 @@ public class bagerdameThread extends Thread {
         Random r = new Random();
         while (work) {
             try {
-                sleep(r.nextInt(1000, 6000));
+                sleep(r.nextInt(2000, 8000));
             } catch (InterruptedException e) {
                 if (work) {
                     throw new RuntimeException(e);
@@ -34,6 +34,7 @@ public class bagerdameThread extends Thread {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
+                x.TagerRanTid(1000);
                 System.out.printf("""
                                 %02d:%02d:%02d : %s ekspederede %s
                                             Der er nu %d tilbage i køen!
