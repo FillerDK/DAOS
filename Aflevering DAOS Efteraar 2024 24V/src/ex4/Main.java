@@ -10,23 +10,20 @@ public class Main {
                 "Peter", "Mikael", "Martin", "Hanne", "Susanne",
                 "Søren", "Karsten", "Esben", "Simon", "Oliver"};
 
-        ankomstThread aT1 = new ankomstThread("A", x, navne1);
-        ankomstThread aT2 = new ankomstThread("B", x, navne2);
+        ankomstThread indgangA = new ankomstThread("A", x, navne1, navne1.length);
+        ankomstThread indgangB = new ankomstThread("B", x, navne2, navne2.length);
 
-        bagerdameThread bdT1 = new bagerdameThread("Brit", x);
-        bagerdameThread bdT2 = new bagerdameThread("Hanne", x);
+        bagerdameThread brit = new bagerdameThread("Brit", x);
+        bagerdameThread hanne = new bagerdameThread("Hanne", x);
 
-        System.out.println("Start");
+        indgangA.start();
+        indgangB.start();
+        brit.start();
+        hanne.start();
 
-        bdT1.start();
-        bdT2.start();
-        aT1.start();
-        aT2.start();
+        while (x.getAntalEkspedierede() != navne1.length+ navne2.length) Thread.sleep(500);
 
-        while (x.getAntalEkspedierede() != 20) {
-            Thread.sleep(500);
-        }
-        bdT1.setWork(false);
-        bdT2.setWork(false);
+        brit.setWork(false);
+        hanne.setWork(false);
     }
 }

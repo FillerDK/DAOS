@@ -38,7 +38,7 @@ public class Common {
         sidsteNummer = temp +1;
     }
 
-    public static synchronized void opdaterEkspeditionsNummer() {
+    public static void opdaterEkspeditionsNummer() {
         int temp;
         temp = ekspeditionsNummer;
         TagerRanTid(10000);

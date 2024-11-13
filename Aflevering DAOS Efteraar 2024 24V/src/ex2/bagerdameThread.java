@@ -1,5 +1,6 @@
 package ex2;
 
+import java.time.LocalTime;
 import java.util.Random;
 
 public class bagerdameThread extends Thread {
@@ -13,10 +14,12 @@ public class bagerdameThread extends Thread {
     }
 
     public void run() {
+        System.out.printf("%02d:%02d:%02d : %s er mødt ind på arbejde!\n",
+                LocalTime.now().getHour(), LocalTime.now().getMinute(),
+                LocalTime.now().getSecond(), navn);
         Random r = new Random();
         boolean work = true;
         while (work) {
-            // busy waiting
             while (x.getEkspeditionsNummer() == x.getBilletnummer());
 
             try {
@@ -26,11 +29,16 @@ public class bagerdameThread extends Thread {
             }
             x.opdaterEkspeditionsNummer();
             System.out.printf("""
-                    Kunde ekspederet: %d | kø: %d
-                    """, x.getEkspeditionsNummer(), x.getKøStørrelse());
+                                %02d:%02d:%02d : %s ekspederede en kunde
+                                            Der er nu %d tilbage i køen!
+                                """, LocalTime.now().getHour(), LocalTime.now().getMinute(),
+                    LocalTime.now().getSecond(), navn, x.getKøStørrelse());
             if (x.getEkspeditionsNummer() == 20) {
                 work = false;
             }
         }
+        System.out.printf("%02d:%02d:%02d : %s har fået fri!\n",
+                LocalTime.now().getHour(), LocalTime.now().getMinute(),
+                LocalTime.now().getSecond(), navn);
     }
 }
