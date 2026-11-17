@@ -1,0 +1,25 @@
+USE eksempeldb
+
+GO
+
+INSERT INTO postnummer VALUES('8000', 'Aarhus C')
+INSERT INTO postnummer VALUES('8200', 'Aarhus N')
+INSERT INTO postnummer VALUES('8210', 'Aarhus V')
+INSERT INTO postnummer VALUES('8220', 'Brabrand')
+INSERT INTO postnummer VALUES('8240', 'Risskov')
+INSERT INTO postnummer VALUES('8310', 'Transbjerg J')
+INSERT INTO postnummer VALUES('8270', 'Højbjerg')
+INSERT INTO postnummer VALUES('8250', 'Egø')
+INSERT INTO person VALUES('1212121212', 'Ib Hansen', 'systemudvikler', 250000, '8000')
+INSERT INTO person VALUES('1313131313', 'Poul Ibsen', 'projektleder', 500000, '8310')
+INSERT INTO person VALUES('1414141414', 'Anna  Poulsen', 'IT-chef', 870000, '8250')
+INSERT INTO person VALUES('1515151515', 'Jette Olsen', 'systemudvikler', 200000, '8000')
+INSERT INTO person VALUES('1616161616', 'Roy Hurtigkoder', 'programmør', 500000, '8210')
+INSERT INTO firma VALUES(1, 'Danske Data', '8220')
+INSERT INTO firma VALUES(2, 'Kommunedata', '8000')
+INSERT INTO firma VALUES(3, 'LEC', '8240')
+INSERT INTO firma VALUES(4, 'Dansk Supermarked', '8270')
+INSERT INTO ansati VALUES('1212121212', 2)
+INSERT INTO ansati VALUES('1313131313', 4)
+INSERT INTO ansati VALUES('1414141414', 4)
+INSERT INTO ansati VALUES('1616161616', 2)
